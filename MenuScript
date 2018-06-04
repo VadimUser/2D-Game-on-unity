@@ -1,0 +1,34 @@
+using UnityEngine;
+
+/// <summary>
+/// Скрипт главного меню
+/// </summary>
+public class MenuScript : MonoBehaviour
+{
+    void OnGUI()
+    {
+        const int buttonWidth = 84;
+        const int buttonHeight = 60;
+        /// <summary>
+        /// Определяем место кнопки на экране:
+        /// по оси X - в центре, по оси Y - 2/3 от высоты
+        /// </summary>
+        Rect buttonRect = new Rect(
+              Screen.width / 2 - (buttonWidth / 2),
+              (2 * Screen.height / 3) - (buttonHeight / 2),
+              buttonWidth,
+              buttonHeight
+            );
+        /// <summary>
+        /// Нарисуйте кнопку, чтобы начать игру
+        /// </summary>
+        if (GUI.Button(buttonRect, "Start!"))
+        {  /// <summary>
+            /// По щелчку по кнопке, загрузите первый уровень.
+            /// "Stage1" - название первой сцены, которую мы создали.
+            /// Ее то мы и загрузим.
+            /// </summary>
+            Application.LoadLevel("Stage1");
+        }
+    }
+}
